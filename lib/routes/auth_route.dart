@@ -1,16 +1,31 @@
 import 'package:go_router/go_router.dart';
 
-import '../screens/auth/forgot_password_screen.dart';
-import '../screens/auth/otp_screen.dart';
+import '../views/screens/auth/change_password_screen.dart';
+import '../views/screens/auth/forgot_password_screen.dart';
+import '../views/screens/auth/login_screen.dart';
+import '../views/screens/auth/signup_screen.dart';
+import '../views/screens/auth/verify_otp_screen.dart';
 
 final authRoute = [
   GoRoute(
-      path: ForgotPassword.path,
-      name: ForgotPassword.routeName,
-      builder: (context, state) => const ForgotPassword()),
+      path: LoginScreen.path,
+      name: LoginScreen.routeName,
+      builder: (context, state) => const LoginScreen()),
   GoRoute(
-      path: OtpScreen.path,
-      name: OtpScreen.routeName,
+      path: SignupScreen.path,
+      name: SignupScreen.routeName,
+      builder: (context, state) => const SignupScreen()),
+  GoRoute(
+      path: ForgotPasswordScreen.path,
+      name: ForgotPasswordScreen.routeName,
+      builder: (context, state) => const ForgotPasswordScreen()),
+  GoRoute(
+      path: ForgotPasswordScreen.path,
+      name: ForgotPasswordScreen.routeName,
+      builder: (context, state) => const ForgotPasswordScreen()),
+  GoRoute(
+      path: VerifyOtpScreen.path,
+      name: VerifyOtpScreen.routeName,
       builder: (context, state) {
         final queryParams = state.uri.queryParameters;
 
@@ -20,9 +35,13 @@ final authRoute = [
           throw "Invalid url";
         }
 
-        return OtpScreen(
+        return VerifyOtpScreen(
           email: state.uri.queryParameters['email']!,
           nextScreen: state.uri.queryParameters['to']!,
         );
       }),
+  GoRoute(
+      path: ChangePasswordScreen.path,
+      name: ChangePasswordScreen.routeName,
+      builder: (context, state) => const ChangePasswordScreen()),
 ];

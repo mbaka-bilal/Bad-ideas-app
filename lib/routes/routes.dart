@@ -1,12 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../controllers/services/shared_preferences_manager.dart';
 import '../core/utils/constant/constants.dart';
+import '../views/screens/error_screen.dart';
+import '../views/screens/onboarding/splash_screen.dart';
 import 'auth_route.dart';
+import 'dashboard_route.dart';
+import 'onboarding_routes.dart';
+import 'profile_route.dart';
 
 final globalNavKey = GlobalKey<NavigatorState>();
+
+final publicRoutes = [
+  GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
+  ...onboardingRoutes,
+  ...authRoute,
+  GoRoute(
+      path: '/${ErrorScreen.routeName}',
+      builder: (context, state) => const ErrorScreen()),
+];
+
+final privateRoutes = [
+  ...dashboardRoute,
+  ...profileRoute,
+];
 
 final routes = GoRouter(
   initialLocation: '/',
@@ -14,7 +32,7 @@ final routes = GoRouter(
   navigatorKey: globalNavKey,
   restorationScopeId: 'router',
   onException: (context, state, router) {
-    //TODO return error page
+    return router.go(ErrorScreen.path);
   },
   redirect: (context, state) async {
     final isLoggedIn = (await SharedPreferencesManager.getValue(
@@ -30,24 +48,15 @@ final routes = GoRouter(
         return null;
       }
     } else {
-      return null;
+      if (publicRoutes.map((e) => e.path).contains(state.matchedLocation)) {
+        return state.matchedLocation;
+      } else {
+        return "/";
+      }
     }
   },
   routes: [
-    GoRoute(path: '/', builder: (context, state) => const LoginScreen()),
     ...publicRoutes,
     ...privateRoutes,
   ],
 );
-
-final publicRoutes = [
-  ...authRoute,
-];
-
-final privateRoutes = [
-  GoRoute(
-      path: DashboardScreen.path,
-      name: DashboardScreen.routeName,
-      builder: (context, state) => DashboardScreen()),
-  ...profileRoute
-];

@@ -58,6 +58,10 @@ class AppHelpers {
 
   static final kUserMobileLayoutForWeb = !kIsWeb || kIsWebMobile;
 
+  static bool isLargeScreen(BuildContext context) {
+    return MediaQuery.of(context).size.width > kWidthTrashHoldForMobileLayout;
+  }
+
   static double getDeviceWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
   }
