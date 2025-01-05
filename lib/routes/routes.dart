@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../controllers/services/shared_preferences_manager.dart';
 import '../core/utils/constant/constants.dart';
-import '../views/screens/dashboard/dashboard_screen.dart';
+import '../views/screens/home/screens/dashboard_screen.dart';
 import '../views/screens/error_screen.dart';
 import '../views/screens/onboarding/splash_screen.dart';
 import 'auth_route.dart';
@@ -44,13 +44,13 @@ final routes = GoRouter(
 
     if (isLoggedIn) {
       if (privateRoutes.map((e) => e.path).contains(state.matchedLocation)) {
-        return state.matchedLocation;
+        return null;
       } else {
         return DashboardScreen.path;
       }
     } else {
       if (publicRoutes.map((e) => e.path).contains(state.matchedLocation)) {
-        return state.matchedLocation;
+        return null;
       } else {
         return "/";
       }

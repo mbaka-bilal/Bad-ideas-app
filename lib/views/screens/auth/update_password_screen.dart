@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
 
-import '../../../controllers/services/navigation_service.dart';
 import '../../../core/utils/constant/constants.dart';
 import '../../../core/utils/constant/spacing.dart';
-import '../../../core/utils/helpers.dart';
 import '../../widgets/app_logo.dart';
 import '../../widgets/buttons/app_buttons.dart';
 import '../../widgets/copyright.dart';
 import '../../widgets/input_fields/app_input_fields.dart';
 import '../../widgets/wrap_child_with_layout_builder.dart';
-import 'change_password_screen.dart';
-import 'verify_otp_screen.dart';
 
-class ForgotPasswordScreen extends StatefulWidget {
+class UpdatePasswordScreen extends StatefulWidget {
   static const path = "/$routeName";
-  static const routeName = "forgot-password";
+  static const routeName = "update-password";
 
-  const ForgotPasswordScreen({super.key});
+  const UpdatePasswordScreen({super.key});
 
   @override
-  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
+  State<UpdatePasswordScreen> createState() => _UpdatePasswordScreenState();
 }
 
-class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  final TextEditingController emailController = TextEditingController();
+class _UpdatePasswordScreenState extends State<UpdatePasswordScreen> {
+  final TextEditingController currentPasswordController = TextEditingController();
+  final TextEditingController newPasswordController = TextEditingController();
+  final TextEditingController confirmNewPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -49,32 +48,26 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AppInputTextField(
-            title: "Email",
-            controller: emailController,
+            title: "Current Password",
+            controller: currentPasswordController,
           ),
-          Spacing.largeVerticalSpace,
+          Spacing.mediumVerticalSpace,
+          AppInputTextField(
+            title: "New Password",
+            controller: newPasswordController,
+          ),
+          Spacing.mediumVerticalSpace,
+          AppInputTextField(
+            title: "Confirm New Password",
+            controller: confirmNewPasswordController,
+          ),
+          Spacing.largeVerticalSpace, 
           AppButton(
-            buttonText: "Reset Password",
-            onPressed: () => navToOtpScreen(),
-          )
+            buttonText: "Update",
+            onPressed: () {},
+          ),
         ],
       ),
     );
-  }
-
-  void navToOtpScreen() {
-    final queryParam = {
-      "to": ChangePasswordScreen.routeName,
-      "email": "emailController.text"
-    };
-
-    if (AppHelpers.isWeb) {
-      AppNavigator.go(
-          context: context,
-          name: VerifyOtpScreen.routeName,
-          queryParameters: queryParam);
-    } else {
-      AppNavigator.push(context: context, name: VerifyOtpScreen.routeName);
-    }
   }
 }

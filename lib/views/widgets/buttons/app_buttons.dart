@@ -42,7 +42,7 @@ class AppButton extends StatelessWidget {
         "Either child or text is required");
 
     return Container(
-      height: height ?? 70.h,
+      height: height ?? 60.h,
       width: width ?? double.infinity,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius ?? 16)),

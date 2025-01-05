@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 
-import '../views/screens/dashboard/root_screen.dart';
+import '../views/screens/home/root_screen.dart';
 
 final dashboardRoute = [
   GoRoute(

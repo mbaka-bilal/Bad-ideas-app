@@ -1,13 +1,15 @@
-import 'package:bad_ideas_app/controllers/services/navigation_service.dart';
-import 'package:bad_ideas_app/views/widgets/wrap_child_with_layout_builder.dart';
 import 'package:flutter/material.dart';
 
+import '../../../controllers/services/navigation_service.dart';
 import '../../../core/utils/constant/constants.dart';
 import '../../../core/utils/constant/spacing.dart';
 import '../../../core/utils/helpers.dart';
+import '../../widgets/app_logo.dart';
 import '../../widgets/buttons/app_buttons.dart';
 import '../../widgets/copyright.dart';
 import '../../widgets/input_fields/app_input_fields.dart';
+import '../../widgets/wrap_child_with_layout_builder.dart';
+import '../home/root_screen.dart';
 import 'forgot_password_screen.dart';
 import 'signup_screen.dart';
 
@@ -33,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(),
+          AppLogo(),
           body(),
           Copyright(),
         ],
@@ -57,6 +59,13 @@ class _LoginScreenState extends State<LoginScreen> {
             title: "Password",
             controller: passwordController,
           ),
+          Spacing.largeVerticalSpace,
+          AppButton(
+            buttonText: "Login",
+            onPressed: () {
+              AppNavigator.go(context: context, name: RootScreen.routeName);
+            },
+          ),
           Spacing.mediumVerticalSpace,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,11 +73,11 @@ class _LoginScreenState extends State<LoginScreen> {
               TextButton(
                   onPressed: () {
                     if (AppHelpers.isWeb) {
-                      AppNavigator.push(
+                      AppNavigator.go(
                           context: context,
                           name: ForgotPasswordScreen.routeName);
                     } else {
-                      AppNavigator.go(
+                      AppNavigator.push(
                           context: context,
                           name: ForgotPasswordScreen.routeName);
                     }
@@ -77,10 +86,10 @@ class _LoginScreenState extends State<LoginScreen> {
               TextButton(
                   onPressed: () {
                     if (AppHelpers.isWeb) {
-                      AppNavigator.push(
+                      AppNavigator.go(
                           context: context, name: SignupScreen.routeName);
                     } else {
-                      AppNavigator.go(
+                      AppNavigator.push(
                           context: context, name: SignupScreen.routeName);
                     }
                   },
