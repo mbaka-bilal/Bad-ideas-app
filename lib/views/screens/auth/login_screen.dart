@@ -30,16 +30,19 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: WrapChildWithLayoutBuilder(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          AppLogo(),
-          body(),
-          Copyright(),
-        ],
-      )),
+      body: PopScope(
+        canPop: false,
+        child: WrapChildWithLayoutBuilder(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            AppLogo(),
+            body(),
+            Copyright(),
+          ],
+        )),
+      ),
     );
   }
 

@@ -33,16 +33,19 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: WrapChildWithLayoutBuilder(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
+      body: PopScope(
+        canPop: false,
+        child: WrapChildWithLayoutBuilder(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
             AppLogo(),
-          body(),
-          Copyright(),
-        ],
-      )),
+            body(),
+            Copyright(),
+          ],
+        )),
+      ),
     );
   }
 
@@ -85,12 +88,9 @@ class _SignupScreenState extends State<SignupScreen> {
             children: [
               TextButton(
                   onPressed: () {
-                    if (AppHelpers.isWeb) {
-                      AppNavigator.pushReplacement(
+                                          AppNavigator.pushReplacement(
                           context: context, name: LoginScreen.routeName);
-                    } else {
-                      AppNavigator.pop(context: context);
-                    }
+
                   },
                   child: Text("Already have an account? Login"))
             ],
@@ -112,7 +112,10 @@ class _SignupScreenState extends State<SignupScreen> {
           name: VerifyOtpScreen.routeName,
           queryParameters: queryParam);
     } else {
-      AppNavigator.push(context: context, name: VerifyOtpScreen.routeName);
+      AppNavigator.push(
+          context: context,
+          name: VerifyOtpScreen.routeName,
+          queryParameters: queryParam);
     }
   }
 }

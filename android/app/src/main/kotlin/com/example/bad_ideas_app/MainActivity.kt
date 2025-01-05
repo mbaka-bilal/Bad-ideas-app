@@ -1,4 +1,4 @@
-package com.example.bad_ideas_app
+package com.app.bad_ideas
 
 import io.flutter.embedding.android.FlutterActivity
 

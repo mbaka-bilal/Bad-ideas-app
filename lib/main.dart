@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 import 'controllers/services/shared_preferences_manager.dart';
 import 'core/utils/constant/constants.dart';
 import 'core/utils/helpers.dart';
 import 'core/utils/theme/dark_theme.dart';
 import 'routes/routes.dart';
-import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+// import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
-void main() {
+void main() async {
   setUrlStrategy(PathUrlStrategy());
   WidgetsFlutterBinding.ensureInitialized();
-  SharedPreferencesManager.init();
+  await SharedPreferencesManager.init();
 
   runApp(ProviderScope(child: const MyApp()));
 }
@@ -36,7 +37,7 @@ class MyApp extends ConsumerWidget {
         title: AppConstants.appName,
         theme: darkTheme,
         debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.light,
+        themeMode: ThemeMode.dark,
         routerConfig: routes,
       ),
     );

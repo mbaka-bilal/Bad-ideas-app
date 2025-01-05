@@ -36,6 +36,8 @@ final routes = GoRouter(
     return router.go(ErrorScreen.path);
   },
   redirect: (context, state) async {
+    // return null;
+
     final isLoggedIn = (await SharedPreferencesManager.getValue(
                 AppConstants.kAccessToken) !=
             null &&

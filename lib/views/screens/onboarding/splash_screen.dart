@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../controllers/services/navigation_service.dart';
+import '../../widgets/app_logo.dart';
 import 'landing_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Splash Screen"),
+        child: AppLogo(),
       ),
     );
   }

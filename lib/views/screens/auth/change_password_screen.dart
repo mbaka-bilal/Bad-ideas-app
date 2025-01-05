@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/utils/constant/constants.dart';
 import '../../../core/utils/constant/spacing.dart';
+import '../../widgets/app_appbar.dart';
 import '../../widgets/app_logo.dart';
 import '../../widgets/buttons/app_buttons.dart';
 import '../../widgets/copyright.dart';
@@ -26,6 +27,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppAppBar(title: "Change Password"),
       body: WrapChildWithLayoutBuilder(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

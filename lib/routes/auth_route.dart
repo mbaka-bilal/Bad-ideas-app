@@ -30,7 +30,7 @@ final authRoute = [
         if (queryParams.isEmpty ||
             queryParams["email"] == "" ||
             queryParams["to"] == "") {
-          throw "Invalid url";
+          throw GoException("Invalid url");
         }
 
         return VerifyOtpScreen(

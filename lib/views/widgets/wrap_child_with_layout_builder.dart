@@ -11,17 +11,19 @@ class WrapChildWithLayoutBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-        builder: (context, constraints) => SingleChildScrollView(
-              padding: AppHelpers.defaultPadding(),
-              physics: AlwaysScrollableScrollPhysics(),
-              child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  minHeight: constraints.maxHeight,
-                  minWidth: constraints.maxWidth,
+    return SafeArea(
+      child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+                padding: AppHelpers.defaultPadding(),
+                physics: AlwaysScrollableScrollPhysics(),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: constraints.maxHeight,
+                    minWidth: constraints.maxWidth,
+                  ),
+                  child: child,
                 ),
-                child: child,
-              ),
-            ));
+              )),
+    );
   }
 }

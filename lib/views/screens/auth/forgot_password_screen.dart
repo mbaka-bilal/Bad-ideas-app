@@ -4,6 +4,7 @@ import '../../../controllers/services/navigation_service.dart';
 import '../../../core/utils/constant/constants.dart';
 import '../../../core/utils/constant/spacing.dart';
 import '../../../core/utils/helpers.dart';
+import '../../widgets/app_appbar.dart';
 import '../../widgets/app_logo.dart';
 import '../../widgets/buttons/app_buttons.dart';
 import '../../widgets/copyright.dart';
@@ -28,6 +29,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppAppBar(title: "Forgot Password"),
       body: WrapChildWithLayoutBuilder(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +76,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           name: VerifyOtpScreen.routeName,
           queryParameters: queryParam);
     } else {
-      AppNavigator.push(context: context, name: VerifyOtpScreen.routeName);
+      AppNavigator.push(
+          context: context,
+          name: VerifyOtpScreen.routeName,
+          queryParameters: queryParam);
     }
   }
 }

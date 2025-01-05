@@ -5,6 +5,7 @@ import '../../../controllers/services/navigation_service.dart';
 import '../../../core/utils/constant/constants.dart';
 import '../../../core/utils/constant/spacing.dart';
 import '../../../core/utils/helpers.dart';
+import '../../widgets/app_appbar.dart';
 import '../../widgets/app_logo.dart';
 import '../../widgets/buttons/app_buttons.dart';
 import '../../widgets/copyright.dart';
@@ -49,9 +50,8 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Verify OTP'),
-      ),
+      appBar: AppAppBar(title: "Verify OTP"),
+      
       body: WrapChildWithLayoutBuilder(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

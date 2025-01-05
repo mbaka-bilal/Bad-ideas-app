@@ -4,7 +4,12 @@ import '../constant/colors.dart';
 
 final darkTheme = ThemeData(
     fontFamily: "roboto",
+    brightness: Brightness.dark,
     scaffoldBackgroundColor: AppColors.primaryColor,
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: AppColors.white,
+      filled: true,
+    ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: AppColors.white,
@@ -30,6 +35,8 @@ final darkTheme = ThemeData(
         backgroundColor: AppColors.primaryColor),
     appBarTheme: const AppBarTheme(
         elevation: 0,
+        iconTheme: IconThemeData(color: AppColors.white),
+        titleTextStyle: TextStyle(color: AppColors.white),
         backgroundColor: AppColors.primaryColor,
         surfaceTintColor: AppColors.primaryColor),
     textTheme: TextTheme(
