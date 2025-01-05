@@ -20,10 +20,6 @@ final authRoute = [
       name: ForgotPasswordScreen.routeName,
       builder: (context, state) => const ForgotPasswordScreen()),
   GoRoute(
-      path: ForgotPasswordScreen.path,
-      name: ForgotPasswordScreen.routeName,
-      builder: (context, state) => const ForgotPasswordScreen()),
-  GoRoute(
       path: VerifyOtpScreen.path,
       name: VerifyOtpScreen.routeName,
       builder: (context, state) {

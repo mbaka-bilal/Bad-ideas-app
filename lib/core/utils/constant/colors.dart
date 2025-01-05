@@ -3,24 +3,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Primary colors from the logo
-  static const primary = Color(0xFF163140); // Assuming a strong blue color
-  static const primaryVariant =
-      Color(0xFF448AFF); // A slightly darker shade of primary
-  static const secondary = Color(0xFFF8CC11); // Assuming a light gray color
-  static const secondary2 = Color(0xFFF7F7F7); // Assuming a light gray color
-// primary:"#163140",
-//     secondary:"#F8CC11"
-  // Text colors
-  static const textPrimary = Color(0xFF212121); // Dark gray for main text
-  static const textSecondary =
-      Color(0xFF757575); // Lighter gray for secondary text
+  static const buttonColor = Color(0xFF163140);
+  static const primaryColor = Color(0xFF001B33);
+  static const primaryVariant = Color(0xFF448AFF);
+  static const secondary = Color(0xFFF8CC11);
+  static const secondary2 = Color(0xFFF7F7F7);
+  static const textPrimary = Color(0xFF212121);
+  static const textSecondary = Color(0xFF757575);
 
-  // Background colors
-  static const background = Color(0xFFF5F5F5); // Off-white background
-
-  // Other colors (if applicable, based on additional logo elements)
-  // ...
+  static const background =
+      Color.fromARGB(255, 22, 21, 21); // Off-white background
 
   static const textColor = Color(0xFF191919);
   static const grey = Color(0xFFD9D9D9);

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../controllers/services/navigation_service.dart';
+import 'landing_screen.dart';
+
 class SplashScreen extends StatefulWidget {
   static const path = "/";
   static const routeName = "splash";
@@ -12,7 +15,19 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      AppNavigator.go(context: context, name: LandingScreen.routeName);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+        child: Text("Splash Screen"),
+      ),
+    );
   }
 }

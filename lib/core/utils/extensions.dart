@@ -1,13 +1,13 @@
 import 'package:intl/intl.dart';
 
 extension ImageExtension on String {
-  get svgImage => "assets/images/$this.svg";
+  get svgImage => "assets/images/svg/$this.svg";
 
-  get svgIcon => "assets/icons/$this.svg";
+  get svgIcon => "assets/icons/svg/$this.svg";
 
-  get pngImage => "assets/images/$this.png";
+  get pngImage => "assets/images/png/$this.png";
 
-  get pngIcon => "assets/icons/$this.png";
+  get pngIcon => "assets/icons/png/$this.png";
 
   get isImage => (endsWith(".jpg") || endsWith(".png") || endsWith(".jpeg"));
 }

@@ -13,19 +13,11 @@ class AppConstants {
   static const kUserNotVerified =
       "Your email has not been verified, please tap on the link sent to your email address to verify your account";
 
-//firebase
-  static const groupsCollection = "groups";
-  static const usersCollection = "users";
-  static const membersKey = "members";
-  static const messagesKey = "messages";
-  static const updatedAt = "updateAt";
-  static const notificationsCollection = "notifications";
-
   //Share Preferences keys
-  static String kHasSeenOnboarding = "hasSeenOnboarding";
-  static String kUserId = "userId";
-  static String kAccessToken = "accessToken";
-  static String kRefreshToken = "refreshToken";
+  static String kHasSeenOnboarding = "${appName}hasSeenOnboarding";
+  static String kUserId = "${appName}userId";
+  static String kAccessToken = "${appName}accessToken";
+  static String kRefreshToken = "${appName}refreshToken";
 
   static const timeoutDuration = Duration(minutes: 1);
 }
