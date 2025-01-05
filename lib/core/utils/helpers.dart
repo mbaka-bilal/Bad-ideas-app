@@ -56,6 +56,8 @@ class AppHelpers {
       (defaultTargetPlatform == TargetPlatform.iOS ||
           defaultTargetPlatform == TargetPlatform.android);
 
+  static final isWeb = kIsWeb;
+
   static final kUserMobileLayoutForWeb = !kIsWeb || kIsWebMobile;
 
   static bool isLargeScreen(BuildContext context) {
@@ -83,10 +85,10 @@ class AppHelpers {
   }
 
   static EdgeInsets defaultPadding(
-      {double left = 10.0,
-      double right = 10.0,
+      {double left = 15.0,
+      double right = 15.0,
       double bottom = 30.0,
-      double top = 10.0}) {
+      double top = 15.0}) {
     return EdgeInsets.only(left: left, top: top, right: right, bottom: bottom);
   }
 

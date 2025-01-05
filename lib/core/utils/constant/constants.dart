@@ -2,6 +2,7 @@ class AppConstants {
   static const appName = 'Bad Ideas';
   static const baseUrl =
       "http://localhost:5000/api/v1"; //"https://harvoxx-school-server.vercel.app/api/v1";
+      static const double kMaxWidth = 500;
 
 // Errors
   static const kInvalidVerCodeFirebaseError = 'invalid-verification-code';
